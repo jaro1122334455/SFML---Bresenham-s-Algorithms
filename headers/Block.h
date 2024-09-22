@@ -21,6 +21,8 @@ class Block : public sf::Drawable
 
     // void update();
 
+    void setFillColor(sf::Color);
+
     sf::RectangleShape& getShape();
 
     float getBlockX()

@@ -13,8 +13,13 @@ Block::Block(float x, float y, float width, float height)
     shape.setPosition(position);
     shape.setSize(sf::Vector2f{width, height});
     // shape.setFillColor(game_setup::color_3);
-    shape.setOutlineThickness(-2);
-    shape.setOutlineColor(sf::Color::Blue);
+    shape.setOutlineThickness(-0.5);
+    shape.setOutlineColor(sf::Color::Black);
+}
+
+void Block::setFillColor(sf::Color color)
+{
+    shape.setFillColor(color);
 }
 
 void Block::draw(sf::RenderTarget& target, sf::RenderStates state) const                         //target to przesłane okno do wyświetlania (tak jak window.draw())
