@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "../headers/Block.h"
+#include "../headers/Board.h"
 #include <vector>
 #include <iostream>
 // #include "Field.h"
@@ -22,50 +23,13 @@ int main() {
     const int x = W;  // szerokość
     const int y = H;   // wysokość
 
-    // Block b1(0, 0, blockSize, blockSize);
+    Board Bo1(W,H,blockSize);
 
-    // Block plansza[x][y];
+    Board* B2 = new Board(W,H,blockSize); 
 
-    Block** plansza = new Block*[x];
+    // window.draw(Bo1);
 
-    for (int i = 0; i < x; ++i) {
-        plansza[i] = new Block[y];
-    }
-
-
-    for(int i = 0; i < x; i = i + blockSize)
-    {
-        for(int j = 0; j < y; j = j + blockSize)
-        {
-            // Block b1(i, j, blockSize, blockSize);
-
-            // std::cout << "i: " << i << " j: " << j << std::endl;
-
-            plansza[i][j] = Block(i, j, blockSize, blockSize);
-            // plansza.emplace_back((j) * (blockSize), (i) * (blockSize), blockSize, blockSize); 
-        }
-    }
-
-    // int a = 0 + 90;
-    // int b = 0;
-
-    // // // Block b1(a, b, blockSize, blockSize);
-    // plansza[0][0] = Block(0, 0, blockSize, blockSize);
-    // plansza[90][0] = Block(90, 0, blockSize, blockSize);
-    // plansza[a][b] = Block(a, b, blockSize, blockSize);
-
-
-    // for(int i = 0; i < (H/blockSize); i++)                         //rysowanie planszy
-    // {
-    //     for(int j = 0; j < (W/blockSize); j++)
-    //     {
-    //         blocks.emplace_back((j) * (blockSize), (i) * (blockSize), blockSize, blockSize);                                            //Funkcja przyjmuje funkcje konstruktora
-    //     }
-    // }
-
-    plansza[20][20].setFillColor(sf::Color::Red);
-
-    // blocks[225].setFillColor(sf::Color::Red);
+    // delete(&Bo1);
 
 
     // Główna pętla programu
@@ -78,35 +42,15 @@ int main() {
         }
 
         window.clear();  // Czyszczenie ekranu
-        // window.draw(b1);  // Rysujemy kwadrat
-        // for(auto& block : blocks)
-        // {
-        //     window.draw(block);
-        // }
 
-        // for(auto& block : plansza)
-        // {
-        //     window.draw(block);
-        // }
-
-        // window.draw(plansza[0][0]);
-        // window.draw(plansza[90][0]);
-        // window.draw(plansza[a][b]);
-
-    for(int i = 0; i < x; i = i + blockSize)
-    {
-        for(int j = 0; j < y; j = j + blockSize)
+        if(B2 != NULL)
         {
-            // Block b1(i, j, blockSize, blockSize);
+            window.draw(*B2);
 
-            // std::cout << "i: " << i << " j: " << j << std::endl;
+            delete(B2);
 
-            // plansza[i][j] = Block(i, j, blockSize, blockSize);
-            window.draw(plansza[i][j]);
-            // plansza.emplace_back((j) * (blockSize), (i) * (blockSize), blockSize, blockSize); 
+            B2 = NULL;
         }
-    }
-
 
         window.display();  // Wyświetlamy zawartość na ekranie
     }
