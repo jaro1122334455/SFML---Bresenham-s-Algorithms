@@ -47,9 +47,9 @@ int main() {
         {
             window.draw(*B2);
 
-            delete(B2);
+            // delete(B2);
 
-            B2 = NULL;
+            // B2 = NULL;
         }
 
         window.display();  // Wyświetlamy zawartość na ekranie
