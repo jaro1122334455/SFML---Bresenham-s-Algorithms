@@ -4,13 +4,14 @@
 
 Board::Board(int x, int y, int blckSize)
 {
+    // sprawdzić czy zrobić tu dzielenie wszystkiego prze blckSize, żeby robić mniejsze tablice
     this->x = x;
     this->y = y;
     this->blckSize = blckSize;
 
     grid = new Block*[x];
 
-    for (int i = 0; i < x; ++i) {
+    for (int i = 0; i < x; i = i + blckSize) {
         grid[i] = new Block[y];
     }
 
