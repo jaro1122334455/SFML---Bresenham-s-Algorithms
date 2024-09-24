@@ -17,10 +17,10 @@ Block::Block(float x, float y, float width, float height)
     shape.setOutlineColor(sf::Color::Black);
 }
 
-void Block::putPixel()
-{
-    shape.setFillColor(sf::Color::Red);
-}
+// void Block::putPixel()
+// {
+//     shape.setFillColor(sf::Color::Red);
+// }
 
 void Block::draw(sf::RenderTarget& target, sf::RenderStates state) const                         //target to przesłane okno do wyświetlania (tak jak window.draw())
 {

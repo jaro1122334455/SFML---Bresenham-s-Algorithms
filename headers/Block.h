@@ -19,7 +19,7 @@ class Block : public sf::Drawable
     Block(){};
     Block(float x, float y, float width, float height);
 
-    void putPixel();
+    // void putPixel();
 
     sf::RectangleShape& getShape();
 

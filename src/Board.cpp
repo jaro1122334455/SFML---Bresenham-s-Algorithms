@@ -35,6 +35,43 @@ void Board::draw(sf::RenderTarget& target, sf::RenderStates state) const        
     }
 }
 
+void Board::putPixel(int x, int y)
+{
+    std::cout << "putPixel on: " << x << " : " << y << std::endl;
+    grid[x][y].getShape().setFillColor(sf::Color::Red);
+}
+
+void Board::drawCircle(int cx, int cy, int r)
+{
+    int x = 0;
+    int y = -r;
+
+    // putPixel(200, 200);
+
+    while(x < -y)
+    {
+        int yMid = y + 5;
+
+        if( (x*x) + (yMid * yMid) > (r * r))
+        {
+            y = y + 10;
+        }
+
+        putPixel(cx + x, cy + y);
+        putPixel(cx - x, cy + y);
+        putPixel(cx + x, cy - y);
+        putPixel(cx - x, cy - y);
+
+        putPixel(cx + y, cy + x);
+        putPixel(cx + y, cy - x);
+        putPixel(cx - y, cy + x);
+        putPixel(cx - y, cy - x);
+        x = x + 10;
+
+    }
+
+}
+
 Board::~Board()
 {
     std::cout << "Destruktor" << std::endl;

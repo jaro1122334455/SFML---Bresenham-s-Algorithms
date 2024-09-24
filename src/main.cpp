@@ -23,13 +23,11 @@ int main() {
     const int x = W;  // szerokość
     const int y = H;   // wysokość
 
-    Board Bo1(W,H,blockSize);
+    // Board Bo1(W,H,blockSize);
 
     Board* B2 = new Board(W,H,blockSize); 
 
-    // window.draw(Bo1);
-
-    // delete(&Bo1);
+    B2->drawCircle(240, 240 , 230);
 
 
     // Główna pętla programu
