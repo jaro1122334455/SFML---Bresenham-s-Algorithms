@@ -6,32 +6,44 @@
 Board::Board(int x, int y, int blckSize)
 {
     // sprawdzić czy zrobić tu dzielenie wszystkiego prze blckSize, żeby robić mniejsze tablice
-    this->x = x;
-    this->y = y;
+    this->x = x * blckSize;
+    this->y = y * blckSize;
     this->blckSize = blckSize;
+
+    std::cout << "x = " << x << " y = " << y << std::endl;
+
+    std::cout << "this x = " << this->x << " this y = " << this->y << std::endl;
 
     grid = new Block*[x];
 
-    for (int i = 0; i < x; i = i + blckSize) {
+    for (int i = 0; i < x; i = i + 1) {
+        std::cout << "Utworzono tablice na: " << i << " pozycji, na: " << y << " elementow" << std:: endl; 
         grid[i] = new Block[y];
     }
 
-    for(int i = 0; i < x; i = i + blckSize)
+    for(int i = 0; i < x; i = i + 1)
     {
-        for(int j = 0; j < y; j = j + blckSize)
+        for(int j = 0; j < y; j = j + 1)
         {
-            grid[i][j] = Block(i, j, blckSize, blckSize);
+            std::cout << "Utworzono blok na: " << i << " : " << j << std::endl;
+            grid[i][j] = Block(i , j, blckSize, blckSize);
         }
     }
+
+    this->x = x / blckSize;
+    this->y = y / blckSize;
 
 }
 
 void Board::draw(sf::RenderTarget& target, sf::RenderStates state) const                         //target to przesłane okno do wyświetlania (tak jak window.draw())
 {
-    for(int i = 0; i < x; i = i + blckSize)
+
+    for(int i = 0; i < x - 1; i = i + 1)
     {
-        for(int j = 0; j < y; j = j + blckSize)
+        for(int j = 0; j < y - 20; j = j + 1)
         {
+            std::cout << "y = " << y << std::endl;
+            std::cout << "Narysowano blok na: " << i << " : " << j << std::endl;
             target.draw(grid[i][j]);
         }
     }

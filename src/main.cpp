@@ -25,11 +25,13 @@ int main() {
 
     // Board Bo1(W,H,blockSize);
 
-    Board* B2 = new Board(W,H,blockSize); 
+    // Board* B2 = new Board(W,H,blockSize); 
+
+    Board* B2 = new Board(50,50,blockSize); 
 
     // B2->drawCircle(240, 240 , 230);
 
-    B2->drawLine(20,20, 430, 270);
+    // B2->drawLine(20,20, 430, 270);
 
 
     // Główna pętla programu

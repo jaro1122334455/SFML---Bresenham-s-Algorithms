@@ -4,6 +4,8 @@
 
 Block::Block(float x, float y, float width, float height)
 {
+    std::cout << "Konstructor Block: " << x << ":" << y << ":" << width << ":" << height << std::endl;
+
     blockX = x;
     blockY = y;
 
@@ -12,8 +14,8 @@ Block::Block(float x, float y, float width, float height)
 
     shape.setPosition(position);
     shape.setSize(sf::Vector2f{width, height});
-    // shape.setFillColor(sf::Color::Red);
-    shape.setOutlineThickness(-0.5);
+    shape.setFillColor(sf::Color::Red);
+    // shape.setOutlineThickness(-0.5);
     shape.setOutlineColor(sf::Color::Black);
 }
 
