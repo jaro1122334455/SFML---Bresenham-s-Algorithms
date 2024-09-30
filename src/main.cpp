@@ -27,7 +27,9 @@ int main() {
 
     Board* B2 = new Board(W,H,blockSize); 
 
-    B2->drawCircle(240, 240 , 230);
+    // B2->drawCircle(240, 240 , 230);
+
+    B2->drawLine(20,20, 430, 270);
 
 
     // Główna pętla programu

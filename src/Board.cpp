@@ -1,6 +1,7 @@
 #include "../headers/Board.h"
 #include "../headers/Block.h"
 #include <iostream>
+#include <cmath>
 
 Board::Board(int x, int y, int blckSize)
 {
@@ -51,11 +52,11 @@ void Board::drawCircle(int cx, int cy, int r)
 
     while(x < -y)
     {
-        int yMid = y + 5;
+        int yMid = y + (blckSize / 2);
 
         if( (x*x) + (yMid * yMid) > (r * r))
         {
-            y = y + 10;
+            y = y + blckSize;
         }
 
         putPixel(cx + x, cy + y);
@@ -69,6 +70,30 @@ void Board::drawCircle(int cx, int cy, int r)
         putPixel(cx - y, cy - x);
         x = x + 10;
 
+    }
+
+}
+
+void Board::drawLine(int x0, int y0, int x1, int y1)
+{
+    int dx = x1 - x0;
+    int dy = y1 - y0;                                       // obliczanie przesunięcia, czyli boków trójkąta który powstaje
+
+    if(dx != 0)
+    {
+        float m = (float)dy / dx;                                  // obliczanie pochylenia linii (ile komórek y przesuwamy się w dół na każdą komórkę x)
+
+        std::cout << "dx: " << dx << std::endl;
+        std::cout << "dy: " << dy << std::endl;
+
+
+        std::cout << "m: " << m << std::endl;
+
+        for(int i = 0; i < dx + blckSize; i = i + blckSize)        // iteracaj po całej długości linii 
+        {
+            putPixel(x0 + i, round(y0 + (i / blckSize * m)) * blckSize);
+            // putPixel(x0 + i, y0 + (i * m));
+        }
     }
 
 }
