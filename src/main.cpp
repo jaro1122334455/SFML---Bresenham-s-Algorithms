@@ -13,21 +13,14 @@ int main() {
     // Tworzymy okno o rozmiarze 800x600 pikseli i tytule "SFML Window"
     sf::RenderWindow window(sf::VideoMode(W, H), "SFML Window");
 
-    // // Tworzymy kwadrat o wymiarach 100x100 pikseli
-    // sf::RectangleShape square(sf::Vector2f(100.0f, 100.0f));
-    // square.setFillColor(sf::Color::Red);  // Ustawiamy kolor wypełnienia na czerwony
-    // square.setPosition(350.0f, 250.0f);   // Ustawiamy pozycję kwadratu na środku okna
-
-    
-
     const int x = W;  // szerokość
     const int y = H;   // wysokość
 
-    // Board Bo1(W,H,blockSize);
+    Board* B2 = new Board(50,50,blockSize); 
 
-    Board* B2 = new Board(W,H,blockSize); 
+    // B2->drawCircle(24, 24 , 23);
 
-    B2->drawCircle(240, 240 , 230);
+    B2->drawLine(2,2, 43, 17);
 
 
     // Główna pętla programu

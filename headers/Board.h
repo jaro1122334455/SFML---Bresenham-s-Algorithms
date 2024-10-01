@@ -18,6 +18,7 @@ class Board : public sf::Drawable
 
     void putPixel(int x, int y);
     void drawCircle(int cx, int cy, int r);
+    void drawLine(int x0, int y0, int x1, int y1);
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates state) const override;
     
