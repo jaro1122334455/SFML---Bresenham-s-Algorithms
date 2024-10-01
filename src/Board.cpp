@@ -52,11 +52,11 @@ void Board::drawCircle(int cx, int cy, int r)
 
     while(x < -y)
     {
-        int yMid = y + (blckSize / 2);
+        int yMid = y + 0.5;
 
         if( (x*x) + (yMid * yMid) > (r * r))
         {
-            y = y + blckSize;
+            y = y + 1;
         }
 
         putPixel(cx + x, cy + y);
@@ -68,7 +68,7 @@ void Board::drawCircle(int cx, int cy, int r)
         putPixel(cx + y, cy - x);
         putPixel(cx - y, cy + x);
         putPixel(cx - y, cy - x);
-        x = x + 10;
+        x = x + 1;
 
     }
 
@@ -89,9 +89,9 @@ void Board::drawLine(int x0, int y0, int x1, int y1)
 
         std::cout << "m: " << m << std::endl;
 
-        for(int i = 0; i < dx + blckSize; i = i + blckSize)        // iteracaj po całej długości linii 
+        for(int i = 0; i < dx; i = i + 1)        // iteracaj po całej długości linii 
         {
-            putPixel(x0 + i, round(y0 + (i / blckSize * m)) * blckSize);
+            putPixel(x0 + i, round(y0 + (i * m)));
             // putPixel(x0 + i, y0 + (i * m));
         }
     }
